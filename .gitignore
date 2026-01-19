@@ -1,0 +1,11 @@
+.vscode
+.DS_Store
+.DS_Store?
+Library/
+Logs/
+Temp/
+Assembly-CSharp-Editor.csproj
+Assembly-CSharp.csproj
+Client.sln
+package-lock.json
+UserSettings/
