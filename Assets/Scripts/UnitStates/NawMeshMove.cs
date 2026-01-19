@@ -4,14 +4,17 @@ using UnityEngine.AI;
 [CreateAssetMenu(fileName = "_NavMeshMove", menuName = "UnitState/NavMeshMove")]
 public class NawMeshMove : UnitState
 {
+    [SerializeField] private bool _isEnemy;
     [SerializeField] private float _moveOffset = 1f;
     private NavMeshAgent _agent;
     private Vector3 _targetPosition;
 
     public override void Init()
     {
+        Vector3 unitPosition = _unit.transform.position;
+        _targetPosition = MapInfo.Instance.GetNearestTowerPosition(in unitPosition, _isEnemy == false);
+
         _agent = _unit.GetComponent<NavMeshAgent>();
-        _targetPosition = Vector3.forward;
         _agent.SetDestination(_targetPosition);
     }
 
