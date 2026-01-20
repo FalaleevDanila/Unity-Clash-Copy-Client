@@ -36,18 +36,32 @@ public class NawMeshMove : UnitState
 
     public override void Run()
     {
-        TryAttackTower();
+        if(TryAttackTower()) return;
+        if(TryAttackUnit()) return;
     }
 
-    private void TryAttackTower()
+    private bool TryAttackTower()
     {
         float distanceToTarget = _nearestTower.GetDistance(_unit.transform.position);
         if (distanceToTarget <= _unit.parameters.startAttackDistance)
         {
-            Debug.Log("Ya tyt");
             _unit.SetState(UnitStateType.Attack);
+            return true;
         }
+        return false;
     }
+
+    private bool TryAttackUnit() {
+        bool hasEnemy = MapInfo.Instance.TryGetNearestUnit(_unit.transform.position, out Unit enemy, _targetIsEnemy, out float distance);
+        if (hasEnemy == false) return false;
+        if (_unit.parameters.startChaseDistance >= distance + enemy.parameters.modelRadius) {
+            _unit.SetState(UnitStateType.Attack);
+            return true;
+        }
+        return false;
+        
+    }
+
 
     public override void Finish()
     {
