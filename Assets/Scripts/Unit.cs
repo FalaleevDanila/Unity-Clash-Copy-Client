@@ -57,4 +57,16 @@ public class Unit : MonoBehaviour
         _currentState.Init();
     }
 
+#if UNITY_EDITOR
+    [Space(24)]
+    [SerializeField] private bool _debug = false;
+
+    private void OnDrawGizmos()
+    {
+        if (_debug == false) return;
+        if (_chaseStateSO != null) _chaseStateSO.DebugDrawDistance(this);
+    }
+
+#endif
+
 }
