@@ -918,6 +918,7 @@ GameObject:
   - component: {fileID: 424047429}
   - component: {fileID: 424047428}
   - component: {fileID: 424047427}
+  - component: {fileID: 424047431}
   m_Layer: 0
   m_Name: Warrior (1)
   m_TagString: Untagged
@@ -939,10 +940,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitParameters
   <speed>k__BackingField: 4
   <modelRadius>k__BackingField: 1
-  <startChaseDistance>k__BackingField: 3
-  <stopChaseDistance>k__BackingField: 5
+  <startChaseDistance>k__BackingField: 5
+  <stopChaseDistance>k__BackingField: 8
   _startAttackDistance: 2
-  _stopAttackDistance: 4
+  _stopAttackDistance: 3
 --- !u!114 &424047428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -955,11 +956,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65978b7b7df394f208d096ade94f6613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unit
+  <health>k__BackingField: {fileID: 424047431}
   <isEnemy>k__BackingField: 1
   parameters: {fileID: 424047427}
   _defaultStateSO: {fileID: 11400000, guid: 5cbd88420f56043c7bf481c7e9e9029f, type: 2}
   _chaseStateSO: {fileID: 11400000, guid: ffc605cf1a1a84a578673dfc8c0c446c, type: 2}
-  _attackStateSO: {fileID: 11400000, guid: 5cbd88420f56043c7bf481c7e9e9029f, type: 2}
+  _attackStateSO: {fileID: 11400000, guid: cb4696146b1d84a6ca49cb3007f98334, type: 2}
   _debug: 1
 --- !u!195 &424047429
 NavMeshAgent:
@@ -992,13 +994,26 @@ Transform:
   m_GameObject: {fileID: 424047426}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 10.43}
+  m_LocalPosition: {x: 3.32, y: -0.26, z: 8.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 141226124}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &424047431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424047426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659fd09e9098846c0a38d800588110a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  <max>k__BackingField: 10
 --- !u!1 &657360152
 GameObject:
   m_ObjectHideFlags: 0
@@ -1122,6 +1137,8 @@ GameObject:
   - component: {fileID: 716966280}
   - component: {fileID: 716966281}
   - component: {fileID: 716966282}
+  - component: {fileID: 716966283}
+  - component: {fileID: 716966284}
   m_Layer: 0
   m_Name: Tower_L_2
   m_TagString: Untagged
@@ -1177,7 +1194,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d27f60dff3360452bb69d0086889163b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tower
-  _radius: 1
+  <health>k__BackingField: {fileID: 716966283}
+  <radius>k__BackingField: 2
+--- !u!114 &716966283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716966279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659fd09e9098846c0a38d800588110a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  <max>k__BackingField: 10
+--- !u!114 &716966284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716966279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c73830c7b297f4d6185c4bb997735144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnitParameters
+  <speed>k__BackingField: 4
+  <modelRadius>k__BackingField: 1
+  <startChaseDistance>k__BackingField: 5
+  <stopChaseDistance>k__BackingField: 7
+  _startAttackDistance: 1
+  _stopAttackDistance: 1.5
 --- !u!1 &746580762
 GameObject:
   m_ObjectHideFlags: 0
@@ -1510,6 +1559,7 @@ GameObject:
   - component: {fileID: 1191462129}
   - component: {fileID: 1191462130}
   - component: {fileID: 1191462131}
+  - component: {fileID: 1191462132}
   m_Layer: 0
   m_Name: Warrior
   m_TagString: Untagged
@@ -1526,7 +1576,7 @@ Transform:
   m_GameObject: {fileID: 1191462127}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.31, y: 0, z: -8.39}
+  m_LocalPosition: {x: 5.86, y: 0, z: -4.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1567,11 +1617,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65978b7b7df394f208d096ade94f6613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unit
+  <health>k__BackingField: {fileID: 1191462132}
   <isEnemy>k__BackingField: 0
   parameters: {fileID: 1191462131}
   _defaultStateSO: {fileID: 11400000, guid: 5cbd88420f56043c7bf481c7e9e9029f, type: 2}
   _chaseStateSO: {fileID: 11400000, guid: ffc605cf1a1a84a578673dfc8c0c446c, type: 2}
-  _attackStateSO: {fileID: 11400000, guid: 5cbd88420f56043c7bf481c7e9e9029f, type: 2}
+  _attackStateSO: {fileID: 11400000, guid: cb4696146b1d84a6ca49cb3007f98334, type: 2}
   _debug: 1
 --- !u!114 &1191462131
 MonoBehaviour:
@@ -1587,10 +1638,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitParameters
   <speed>k__BackingField: 4
   <modelRadius>k__BackingField: 1
-  <startChaseDistance>k__BackingField: 15
-  <stopChaseDistance>k__BackingField: 16
+  <startChaseDistance>k__BackingField: 5
+  <stopChaseDistance>k__BackingField: 8
   _startAttackDistance: 2
-  _stopAttackDistance: 4
+  _stopAttackDistance: 3
+--- !u!114 &1191462132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191462127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659fd09e9098846c0a38d800588110a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  <max>k__BackingField: 10
 --- !u!1 &1193788274
 GameObject:
   m_ObjectHideFlags: 0
@@ -1714,6 +1778,8 @@ GameObject:
   - component: {fileID: 1237370873}
   - component: {fileID: 1237370874}
   - component: {fileID: 1237370875}
+  - component: {fileID: 1237370876}
+  - component: {fileID: 1237370877}
   m_Layer: 0
   m_Name: Tower_R_1
   m_TagString: Untagged
@@ -1769,7 +1835,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d27f60dff3360452bb69d0086889163b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tower
-  _radius: 1
+  <health>k__BackingField: {fileID: 1237370876}
+  <radius>k__BackingField: 2
+--- !u!114 &1237370876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237370872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659fd09e9098846c0a38d800588110a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  <max>k__BackingField: 10
+--- !u!114 &1237370877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237370872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c73830c7b297f4d6185c4bb997735144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnitParameters
+  <speed>k__BackingField: 4
+  <modelRadius>k__BackingField: 1
+  <startChaseDistance>k__BackingField: 5
+  <stopChaseDistance>k__BackingField: 7
+  _startAttackDistance: 1
+  _stopAttackDistance: 1.5
 --- !u!1 &1268254807
 GameObject:
   m_ObjectHideFlags: 0
@@ -1781,6 +1879,8 @@ GameObject:
   - component: {fileID: 1268254808}
   - component: {fileID: 1268254809}
   - component: {fileID: 1268254810}
+  - component: {fileID: 1268254811}
+  - component: {fileID: 1268254812}
   m_Layer: 0
   m_Name: KingTower_1
   m_TagString: Untagged
@@ -1836,7 +1936,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d27f60dff3360452bb69d0086889163b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tower
-  _radius: 1.5
+  <health>k__BackingField: {fileID: 1268254811}
+  <radius>k__BackingField: 2
+--- !u!114 &1268254811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268254807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659fd09e9098846c0a38d800588110a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  <max>k__BackingField: 10
+--- !u!114 &1268254812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268254807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c73830c7b297f4d6185c4bb997735144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnitParameters
+  <speed>k__BackingField: 4
+  <modelRadius>k__BackingField: 1
+  <startChaseDistance>k__BackingField: 5
+  <stopChaseDistance>k__BackingField: 7
+  _startAttackDistance: 1
+  _stopAttackDistance: 1.5
 --- !u!1 &1339816833
 GameObject:
   m_ObjectHideFlags: 0
@@ -1848,6 +1980,8 @@ GameObject:
   - component: {fileID: 1339816834}
   - component: {fileID: 1339816835}
   - component: {fileID: 1339816836}
+  - component: {fileID: 1339816837}
+  - component: {fileID: 1339816838}
   m_Layer: 0
   m_Name: KingTower_2
   m_TagString: Untagged
@@ -1903,7 +2037,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d27f60dff3360452bb69d0086889163b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tower
-  _radius: 1.5
+  <health>k__BackingField: {fileID: 1339816837}
+  <radius>k__BackingField: 2
+--- !u!114 &1339816837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339816833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659fd09e9098846c0a38d800588110a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  <max>k__BackingField: 10
+--- !u!114 &1339816838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339816833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c73830c7b297f4d6185c4bb997735144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnitParameters
+  <speed>k__BackingField: 4
+  <modelRadius>k__BackingField: 1
+  <startChaseDistance>k__BackingField: 5
+  <stopChaseDistance>k__BackingField: 7
+  _startAttackDistance: 1
+  _stopAttackDistance: 1.5
 --- !u!1 &1355531334
 GameObject:
   m_ObjectHideFlags: 0
@@ -2027,6 +2193,8 @@ GameObject:
   - component: {fileID: 1462775781}
   - component: {fileID: 1462775782}
   - component: {fileID: 1462775783}
+  - component: {fileID: 1462775784}
+  - component: {fileID: 1462775785}
   m_Layer: 0
   m_Name: Tower_L_1
   m_TagString: Untagged
@@ -2082,7 +2250,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d27f60dff3360452bb69d0086889163b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tower
-  _radius: 1
+  <health>k__BackingField: {fileID: 1462775784}
+  <radius>k__BackingField: 2
+--- !u!114 &1462775784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462775780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659fd09e9098846c0a38d800588110a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  <max>k__BackingField: 10
+--- !u!114 &1462775785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462775780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c73830c7b297f4d6185c4bb997735144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnitParameters
+  <speed>k__BackingField: 4
+  <modelRadius>k__BackingField: 1
+  <startChaseDistance>k__BackingField: 5
+  <stopChaseDistance>k__BackingField: 7
+  _startAttackDistance: 1
+  _stopAttackDistance: 1.5
 --- !u!1 &1463632844
 GameObject:
   m_ObjectHideFlags: 0
@@ -2651,6 +2851,8 @@ GameObject:
   - component: {fileID: 2069666405}
   - component: {fileID: 2069666406}
   - component: {fileID: 2069666407}
+  - component: {fileID: 2069666408}
+  - component: {fileID: 2069666409}
   m_Layer: 0
   m_Name: Tower_R_2
   m_TagString: Untagged
@@ -2706,7 +2908,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d27f60dff3360452bb69d0086889163b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tower
-  _radius: 1
+  <health>k__BackingField: {fileID: 2069666408}
+  <radius>k__BackingField: 2
+--- !u!114 &2069666408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069666404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659fd09e9098846c0a38d800588110a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  <max>k__BackingField: 10
+--- !u!114 &2069666409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069666404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c73830c7b297f4d6185c4bb997735144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnitParameters
+  <speed>k__BackingField: 4
+  <modelRadius>k__BackingField: 1
+  <startChaseDistance>k__BackingField: 5
+  <stopChaseDistance>k__BackingField: 7
+  _startAttackDistance: 1
+  _stopAttackDistance: 1.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
