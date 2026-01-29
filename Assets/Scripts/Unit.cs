@@ -1,11 +1,14 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(UnitParameters), typeof(Health))]
-public class Unit : MonoBehaviour, IHealth
+public class Unit : MonoBehaviour, IHealth, IDestroyed
 {
     [field: SerializeField] public Health health { get; private set; }
     [field: SerializeField] public bool isEnemy { get; private set; }
     [field: SerializeField] public UnitParameters parameters;
+
+    public event Action Destroyed;
     [SerializeField] private UnitState _defaultStateSO;
     [SerializeField] private UnitState _chaseStateSO;
     [SerializeField] private UnitState _attackStateSO;
@@ -17,6 +20,30 @@ public class Unit : MonoBehaviour, IHealth
 
     private void Start()
     {
+        CreateStates();
+
+        _currentState = _defaultState;
+        _currentState.Init();
+
+        health.UpdateHealth += CheckDestroy;
+    }
+
+    private void Update()
+    {
+        _currentState.Run();
+    }
+
+    private void CheckDestroy(float currentHP)
+    {
+        if (currentHP > 0) return;
+
+        health.UpdateHealth -= CheckDestroy;
+        Destroy(gameObject);
+        Destroyed?.Invoke();
+    }
+
+    private void CreateStates()
+    {
         _defaultState = Instantiate(_defaultStateSO);
         _defaultState.Construct(this);
 
@@ -25,15 +52,8 @@ public class Unit : MonoBehaviour, IHealth
 
         _attackState = Instantiate(_attackStateSO);
         _attackState.Construct(this);
-
-        _currentState = _defaultState;
-        _currentState.Init();
     }
 
-    private void Update()
-    {
-        _currentState.Run();
-    }
 
     public void SetState(UnitStateType type)
     {
@@ -61,6 +81,7 @@ public class Unit : MonoBehaviour, IHealth
 #if UNITY_EDITOR
     [Space(24)]
     [SerializeField] private bool _debug = false;
+
 
     private void OnDrawGizmos()
     {

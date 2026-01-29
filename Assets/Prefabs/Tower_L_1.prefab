@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &5920085174453536116
 Transform:
@@ -121,17 +121,17 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2239508600103211909}
-  - component: {fileID: 1828126403396588885}
   - component: {fileID: 1438645316026284042}
   - component: {fileID: 310034561738528491}
   - component: {fileID: 4294949675443814504}
   - component: {fileID: 4750316562882679096}
+  - component: {fileID: 1577657950308465789}
   m_Layer: 0
   m_Name: Tower_L_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &2239508600103211909
 Transform:
@@ -150,26 +150,6 @@ Transform:
   - {fileID: 5920085174453536116}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1828126403396588885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8864984091614246718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 0
-  m_Area: 0
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
 --- !u!114 &1438645316026284042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,6 +210,22 @@ MonoBehaviour:
   _tower: {fileID: 1438645316026284042}
   _healthbar: {fileID: 4483072294659993625}
   _fillHealthImage: {fileID: 1168821471222329891}
+--- !u!208 &1577657950308465789
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8864984091614246718}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.5, y: 1.5, z: 1.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 1.5, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &8775043038508034199
 PrefabInstance:
   m_ObjectHideFlags: 0

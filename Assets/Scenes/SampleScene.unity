@@ -1310,6 +1310,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 844983813}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &938797717 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8197340446267226137, guid: ee5f09e67d407406ba29f115ac8505c3, type: 3}
+  m_PrefabInstance: {fileID: 1006780375}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65978b7b7df394f208d096ade94f6613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Unit
 --- !u!1001 &1006780375
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1324,7 +1335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4477676330987099304, guid: ee5f09e67d407406ba29f115ac8505c3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8197340446267226137, guid: ee5f09e67d407406ba29f115ac8505c3, type: 3}
       propertyPath: <isEnemy>k__BackingField
@@ -1375,6 +1386,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee5f09e67d407406ba29f115ac8505c3, type: 3}
+--- !u!114 &1249166717 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8675696051284330846, guid: 550dba5dadba74fe4917c4c053a49b9f, type: 3}
+  m_PrefabInstance: {fileID: 21442987}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d27f60dff3360452bb69d0086889163b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tower
 --- !u!1 &1268254807
 GameObject:
   m_ObjectHideFlags: 0
@@ -1942,12 +1964,13 @@ MonoBehaviour:
   _enemyTowers:
   - {fileID: 1339816836}
   - {fileID: 716966282}
-  - {fileID: 0}
+  - {fileID: 1249166717}
   _playerTowers:
   - {fileID: 1268254810}
   - {fileID: 1462775783}
-  - {fileID: 0}
-  _enemyUnits: []
+  - {fileID: 1811152936}
+  _enemyUnits:
+  - {fileID: 938797717}
   _playerUnits:
   - {fileID: 1014761096147732893}
 --- !u!4 &1771013324
@@ -2027,6 +2050,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2239508600103211909, guid: 221654151897740ff8e6c367d0f8e9d8, type: 3}
   m_PrefabInstance: {fileID: 1811152932}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1811152936 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1438645316026284042, guid: 221654151897740ff8e6c367d0f8e9d8, type: 3}
+  m_PrefabInstance: {fileID: 1811152932}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d27f60dff3360452bb69d0086889163b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tower
 --- !u!1 &1963693526
 GameObject:
   m_ObjectHideFlags: 0
