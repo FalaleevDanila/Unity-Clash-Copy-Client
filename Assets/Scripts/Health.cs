@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    public event Action<float> UpdateHealth; 
     [field: SerializeField] public float max { get; private set; } = 10f;
     private float _current;
     private void Start()
@@ -13,7 +15,7 @@ public class Health : MonoBehaviour
     {
         _current -= value;
         if (_current < 0) _current = 0;
-        Debug.Log($"Объект {name}: было - {_current + value}, стало {_current}");
+        UpdateHealth?.Invoke(_current);
     }
 
 }
