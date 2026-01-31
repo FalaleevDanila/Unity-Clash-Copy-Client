@@ -380,7 +380,7 @@ GameObject:
   - component: {fileID: 6356854277772184999}
   - component: {fileID: 1941383334086821658}
   m_Layer: 0
-  m_Name: Warrior
+  m_Name: Archer
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -440,9 +440,9 @@ MonoBehaviour:
   <health>k__BackingField: {fileID: 6356854277772184999}
   <isEnemy>k__BackingField: 0
   parameters: {fileID: 9140859756904235118}
-  _defaultStateSO: {fileID: 11400000, guid: 80e1ac35e18674b06b2c75dc73d57990, type: 2}
-  _chaseStateSO: {fileID: 11400000, guid: 1880be7e442174d45af34612152a66b5, type: 2}
-  _attackStateSO: {fileID: 11400000, guid: 9d802923603c04601ac0f74ba79505f9, type: 2}
+  _defaultStateSO: {fileID: 11400000, guid: 5cbd88420f56043c7bf481c7e9e9029f, type: 2}
+  _chaseStateSO: {fileID: 11400000, guid: ffc605cf1a1a84a578673dfc8c0c446c, type: 2}
+  _attackStateSO: {fileID: 11400000, guid: cb4696146b1d84a6ca49cb3007f98334, type: 2}
   _debug: 1
 --- !u!114 &9140859756904235118
 MonoBehaviour:
@@ -457,13 +457,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitParameters
   <isFly>k__BackingField: 0
-  <speed>k__BackingField: 3
+  <speed>k__BackingField: 4
   <modelRadius>k__BackingField: 1
-  <startChaseDistance>k__BackingField: 4
-  <stopChaseDistance>k__BackingField: 5
-  <damageDelay>k__BackingField: 4
-  _startAttackDistance: 2
-  _stopAttackDistance: 3
+  <startChaseDistance>k__BackingField: 6
+  <stopChaseDistance>k__BackingField: 8
+  <damageDelay>k__BackingField: 2
+  _startAttackDistance: 3
+  _stopAttackDistance: 4
 --- !u!114 &6356854277772184999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -494,7 +494,7 @@ MonoBehaviour:
   _fillHealthImage: {fileID: 409914884620888828}
   _healthGradient:
     serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
+    key0: {r: 1, g: 0.12227942, b: 0, a: 1}
     key1: {r: 1, g: 1, b: 1, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}

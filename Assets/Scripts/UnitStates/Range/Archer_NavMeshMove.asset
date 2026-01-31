@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd0c5bb426f16405e9f502fcfd21f978, type: 3}
-  m_Name: Warrior_UsualAttack
-  m_EditorClassIdentifier: Assembly-CSharp::UsualAttack
-  _damage: 1.5
-  _delay: 1
+  m_Script: {fileID: 11500000, guid: 7eaf8d1227dd542a89e943d37eea0562, type: 3}
+  m_Name: Archer_NavMeshMove
+  m_EditorClassIdentifier: Assembly-CSharp::NawMeshMove

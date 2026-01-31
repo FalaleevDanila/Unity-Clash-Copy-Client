@@ -1039,6 +1039,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1268254808}
     m_Modifications:
+    - target: {fileID: 474125283210405758, guid: ccca16237869246f9a8b2ebbe0c27dc7, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2015870084365627020, guid: ccca16237869246f9a8b2ebbe0c27dc7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1331,7 +1335,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4477676330987099304, guid: ee5f09e67d407406ba29f115ac8505c3, type: 3}
       propertyPath: m_Name
-      value: Warrior (1)
+      value: Golem-Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4477676330987099304, guid: ee5f09e67d407406ba29f115ac8505c3, type: 3}
       propertyPath: m_IsActive
@@ -1494,10 +1498,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c73830c7b297f4d6185c4bb997735144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitParameters
+  <isFly>k__BackingField: 0
   <speed>k__BackingField: 4
   <modelRadius>k__BackingField: 1
   <startChaseDistance>k__BackingField: 5
   <stopChaseDistance>k__BackingField: 7
+  <damageDelay>k__BackingField: 2
   _startAttackDistance: 1
   _stopAttackDistance: 1.5
 --- !u!114 &1268254813
@@ -1612,10 +1618,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c73830c7b297f4d6185c4bb997735144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitParameters
+  <isFly>k__BackingField: 0
   <speed>k__BackingField: 4
   <modelRadius>k__BackingField: 1
   <startChaseDistance>k__BackingField: 5
   <stopChaseDistance>k__BackingField: 7
+  <damageDelay>k__BackingField: 2
   _startAttackDistance: 1
   _stopAttackDistance: 1.5
 --- !u!114 &1339816839
@@ -1969,10 +1977,12 @@ MonoBehaviour:
   - {fileID: 1268254810}
   - {fileID: 1462775783}
   - {fileID: 1811152936}
-  _enemyUnits:
+  _enemyWalkingUnits:
   - {fileID: 938797717}
-  _playerUnits:
+  _playerWalkingUnits:
   - {fileID: 1014761096147732893}
+  _enemyFlyUnits: []
+  _playerFlyUnits: []
 --- !u!4 &1771013324
 Transform:
   m_ObjectHideFlags: 0
@@ -2308,7 +2318,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4477676330987099304, guid: ee5f09e67d407406ba29f115ac8505c3, type: 3}
       propertyPath: m_Name
-      value: Warrior
+      value: Golem
       objectReference: {fileID: 0}
     - target: {fileID: 8605645293319553332, guid: ee5f09e67d407406ba29f115ac8505c3, type: 3}
       propertyPath: m_LocalPosition.x
