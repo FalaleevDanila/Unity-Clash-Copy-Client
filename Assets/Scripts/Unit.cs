@@ -4,15 +4,14 @@ using UnityEngine;
 [RequireComponent(typeof(UnitParameters), typeof(Health))]
 public class Unit : MonoBehaviour, IHealth, IDestroyed
 {
-    [field: SerializeField] public Health health { get; private set; }
-    [field: SerializeField] public bool isEnemy { get; private set; }
-    [field: SerializeField] public UnitParameters parameters;
-
     public event Action Destroyed;
+    [field: SerializeField] public Health health { get; private set; }
+    [field: SerializeField] public bool isEnemy { get; private set; } = false;
+    [field: SerializeField] public UnitParameters parameters;
+    //[SerializeField] private UnitAnimation _animation;
     [SerializeField] private UnitState _defaultStateSO;
     [SerializeField] private UnitState _chaseStateSO;
     [SerializeField] private UnitState _attackStateSO;
-
     private UnitState _defaultState;
     private UnitState _chaseState;
     private UnitState _attackState;
@@ -20,8 +19,9 @@ public class Unit : MonoBehaviour, IHealth, IDestroyed
 
     private void Start()
     {
-        CreateStates();
+        //_animation.Init(this);
 
+        CreateStates();
         _currentState = _defaultState;
         _currentState.Init();
 
@@ -33,27 +33,27 @@ public class Unit : MonoBehaviour, IHealth, IDestroyed
         _currentState.Run();
     }
 
+    private void CreateStates()
+    {
+        _defaultState = Instantiate(_defaultStateSO);
+        _defaultState.Constructor(this);
+
+        _chaseState = Instantiate(_chaseStateSO);
+        _chaseState.Constructor(this);
+
+        _attackState = Instantiate(_attackStateSO);
+        _attackState.Constructor(this);
+    }
+
     private void CheckDestroy(float currentHP)
     {
         if (currentHP > 0) return;
 
         health.UpdateHealth -= CheckDestroy;
         Destroy(gameObject);
+
         Destroyed?.Invoke();
     }
-
-    private void CreateStates()
-    {
-        _defaultState = Instantiate(_defaultStateSO);
-        _defaultState.Construct(this);
-
-        _chaseState = Instantiate(_chaseStateSO);
-        _chaseState.Construct(this);
-
-        _attackState = Instantiate(_attackStateSO);
-        _attackState.Construct(this);
-    }
-
 
     public void SetState(UnitStateType type)
     {
@@ -71,24 +71,22 @@ public class Unit : MonoBehaviour, IHealth, IDestroyed
                 _currentState = _attackState;
                 break;
             default:
-                Debug.LogError("Не обрабатываемое состояние " + type);
+                Debug.LogError("Не обрабатывается состояние " + type);
                 break;
         }
 
         _currentState.Init();
-    }
+        //_animation.SetState(type);
+    }        
 
 #if UNITY_EDITOR
     [Space(24)]
     [SerializeField] private bool _debug = false;
-
 
     private void OnDrawGizmos()
     {
         if (_debug == false) return;
         if (_chaseStateSO != null) _chaseStateSO.DebugDrawDistance(this);
     }
-
 #endif
-
 }
