@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "_UsualRangeAttack", menuName = "UnitState/UsualRangeAttack")]
 public class UsualRangeAttack : UnitStateAttack
 {
+    [SerializeField] private Arrow _arrow;
     protected override bool TryFindTarget(out float stopAttackDistance)
     {
         Vector3 unitPosition = _unit.transform.position;
@@ -25,6 +26,20 @@ public class UsualRangeAttack : UnitStateAttack
 
         stopAttackDistance = 0;
         return false;
+    }
+
+    protected override void Attack()
+    {
+        Vector3 unitPosition = _unit.transform.position;
+        unitPosition.y += 1.5f;
+        Vector3 targetPosition = _target.transform.position;
+        targetPosition.y += 1.5f;
+
+        Arrow arrow = Instantiate(_arrow, unitPosition, Quaternion.identity);
+        arrow.Init(targetPosition);
+
+        float delay = Vector3.Distance(unitPosition, targetPosition) / arrow.speed;
+        _target.ApplyDelayDamage(delay, _damage);
     }
 
 }
