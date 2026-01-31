@@ -333,7 +333,7 @@ MonoBehaviour:
   _animation: {fileID: 4781678289162011790}
   _defaultStateSO: {fileID: 11400000, guid: 5cbd88420f56043c7bf481c7e9e9029f, type: 2}
   _chaseStateSO: {fileID: 11400000, guid: ffc605cf1a1a84a578673dfc8c0c446c, type: 2}
-  _attackStateSO: {fileID: 11400000, guid: cb4696146b1d84a6ca49cb3007f98334, type: 2}
+  _attackStateSO: {fileID: 11400000, guid: 2207b2171456c4770a2a508fe4cb5b49, type: 2}
   _debug: 1
 --- !u!114 &9140859756904235118
 MonoBehaviour:
@@ -350,11 +350,11 @@ MonoBehaviour:
   <isFly>k__BackingField: 0
   <speed>k__BackingField: 4
   <modelRadius>k__BackingField: 1
-  <startChaseDistance>k__BackingField: 6
-  <stopChaseDistance>k__BackingField: 8
+  <startChaseDistance>k__BackingField: 10
+  <stopChaseDistance>k__BackingField: 12
   <damageDelay>k__BackingField: 2
-  _startAttackDistance: 3
-  _stopAttackDistance: 4
+  _startAttackDistance: 5
+  _stopAttackDistance: 6
 --- !u!114 &6356854277772184999
 MonoBehaviour:
   m_ObjectHideFlags: 0

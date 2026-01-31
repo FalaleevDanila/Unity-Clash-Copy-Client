@@ -59,7 +59,7 @@ AnimatorState:
   m_PrefabAsset: {fileID: 0}
   m_Name: Projectile Attack Trajectory
   m_Speed: 0.67
-  m_CycleOffset: 0
+  m_CycleOffset: 0.3
   m_Transitions:
   - {fileID: -5607295703197126793}
   m_StateMachineBehaviours: []
