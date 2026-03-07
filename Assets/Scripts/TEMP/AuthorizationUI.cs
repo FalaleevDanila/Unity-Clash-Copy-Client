@@ -8,6 +8,8 @@ public class AuthorizationUI : MonoBehaviour
     [SerializeField] private InputField _password;
     [SerializeField] private Button _signIn;
     [SerializeField] private Button _signUp;
+    [SerializeField] private GameObject _authorizationCanvas;
+    [SerializeField] private GameObject _registrationCanvas;
 
 
     private void Awake()
@@ -16,6 +18,7 @@ public class AuthorizationUI : MonoBehaviour
         _password.onEndEdit.AddListener(_authorization.SetPassword);
 
         _signIn.onClick.AddListener(SingInClick);
+        _signUp.onClick.AddListener(SignUpClick);
 
         _authorization. Error += () =>
         {
@@ -31,5 +34,12 @@ public class AuthorizationUI : MonoBehaviour
         _signUp.gameObject.SetActive(false);
         _authorization.SignIn();
     }
+
+    private void SignUpClick()
+    {
+        _authorizationCanvas.SetActive(false);
+        _registrationCanvas.SetActive(true);
+    }
+
 
 }
